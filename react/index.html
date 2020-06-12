@@ -15,29 +15,65 @@
     </div>
     <script type="text/babel">
         const e = React.createElement;
-        class LikeButton extends React.Component {
-            constructor(props) {
+        class GuGuDan extends React.Component{
+            constructor(props){
                 super(props);
                 this.state = {
-                    liked: false
-                };
+                    first: Math.ceil(Math.random() * 9),
+                    second: Math.ceil(Math.random() * 9),
+                    value: '',
+                    result: ''
+                }
             }
 
-            render() {
-                return <button type="submit" onClick={() => { this.setState({ liked: true }) }}>
-                    {this.state.liked === true ? 'Liked' : 'Like'}
-                </button>
-                //e('button', {
-                //    onClick: () => {
-                //        this.setState({ liked: true })
-                //     }, type: "submit",
-                // }, this.state.liked === true ? 'Liked' : 'Like');
+            onSubmit = (e) =>{
+                e.preventDefault();
+                if(parseInt(this.state.value) === this.state.first * this.state.second){
+                    this.setState((prevState) =>{
+                        console.log(prevState);
+                        return {
+                            value: '',
+                            result:this.state.first + " X " + this.state.second + " = " + this.state.value + " 정답!",
+                            first: Math.ceil(Math.random() * 9),
+                            second: Math.ceil(Math.random() * 9)
+                        }
+                    });
+                    this.input.focus();
+                }
+                else{
+                    this.setState({
+                        result: '땡',
+                        value: ''
+                    })
+                    this.input.focus();
+                }
+            };
+
+            onChange = (e) => {
+                this.setState({value: e.target.value});
+            };
+
+            onRefInput = (c) => thos.input = c;
+
+            render(){
+                // onSubmit, onChange가 일어날때 마다 재 랜더링이 된다.
+                // 그렇기 때문에 메소드 로직으로 나누어 함수가 재정의 되는것을 방지한다.
+                return (
+                    <React.Fragment>
+                        <div>{this.state.first} X {this.state.second}는?</div>
+                        <form onSubmit={this.onSubmit}>
+                            <input ref={(c)=>{this.input = c;}} type="number" value={this.state.value} onChange={this.onChange}/>
+                            <button>입력</button>     
+                        </form>
+                        <div>{this.state.result}</div>
+                    </React.Fragment>
+                );
             }
         }
     </script>
 
     <script type="text/babel">
-        ReactDOM.render(<LikeButton />, document.querySelector('#root'))
+        ReactDOM.render(<GuGuDan />, document.querySelector('#root'))
     </script>
 </body>
 
