@@ -1,0 +1,28 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "|  개발환경  |     CSS      |  API 요청 | 프레임워크 |     언어     | 테스팅 | 호스팅  | | :--------: | :----------: | --------: | :--------: | :----------: | :----: | :-----: | |   `웹펙`   | `인터렉티브` | `GrapeQL` | `Nuxt.js`  | `TypeScript` | `jest` |  `AWS`  | |   `바벨`   |    `SASS`    |           |  `React`   |  `Node.js`   |        | `Doker` | |  `ESLint`  | | `Prettier` |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yg1110/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yg1110/Portfolio/issues"
+  },
+  "homepage": "https://github.com/yg1110/Portfolio#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11",
+    "webpack_": "file:webpack"
+  }
+}
