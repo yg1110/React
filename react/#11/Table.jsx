@@ -1,12 +1,16 @@
-import React from 'react';
-import Tr from './Tr';
+import React, { memo } from "react";
+import Tr from "./Tr";
 
-const Table = ( {onClick, tableData, dispatch} ) => {
+const Table = memo(({ tableData, dispatch, memo }) => {
   return (
-      <teble onClick={onClick}>
-          {Array(tableData.length).fill().map((tr, i) => (<Tr dispatch={dispatch} rowIndex={i} rowData={tableData[i]}/>))}
-      </teble>
-  )
-};
+    <>
+      {Array(tableData.length)
+        .fill()
+        .map((tr, i) => (
+          <Tr key={i} dispatch={dispatch} rowIndex={i} rowData={tableData[i]} />
+        ))}
+    </>
+  );
+});
 
 export default Table;
